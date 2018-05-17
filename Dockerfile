@@ -21,7 +21,7 @@ RUN apt-get -q update
 RUN apt-get -q -y install openssh-server
 
 ### need build tools for building openslide and later iipsrv
-RUN apt-get -q -y install sudo git libtool zsh nodejs npm vim
+RUN apt-get -q -y install sudo git curl libtool zsh nodejs npm vim
 RUN sudo sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 
 RUN mkdir /root/src
