@@ -33,13 +33,13 @@ RUN npm install -g forever
 WORKDIR /root/src
 
 ### git Clone needed folders and copy into final destination.
-RUN git clone https://github.com/SBU-BMI/u24_lymphocyte.git
+RUN git clone https://github.com/SBU-BMI/lymph_pipeline.git
 RUN git clone https://github.com/SBU-BMI/uploadHeatmaps.git
 
 ### Todo: Refactor to use a local copy of scripts that makes sense.
 RUN cp /root/src/uploadHeatmaps/*.sh /usr/local/bin/
-RUN cp /root/src/u24_lymphocyte/download_heatmap/download_markings/* /usr/local/bin/
-RUN cp -Rf /root/src/u24_lymphocyte/conf /etc
+#RUN cp /root/src/u24_lymphocyte/download_heatmap/download_markings/* /usr/local/bin/
+#RUN cp -Rf /root/src/u24_lymphocyte/conf /etc
 
 ### Expose port
 #EXPOSE 3000
