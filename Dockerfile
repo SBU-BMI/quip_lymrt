@@ -42,6 +42,7 @@ RUN ln -s /root/src/lymph_pipeline/download_heatmap/download_markings/download_m
 RUN ln -s /root/src/lymph_pipeline/download_heatmap/download_markings/get_formatted_mark.sh /usr/local/bin/get_formatted_mark.sh
 RUN ln -s /root/src/lymph_pipeline/download_heatmap/download_markings/get_formatted_weight.sh /usr/local/bin/get_formatted_weight.sh
 RUN ln -s /root/src/lymph_pipeline/download_heatmap/download_markings/raw_data_formating.awk /usr/local/bin/raw_data_formating.awk
+RUN chmod u+x /root/src/lymph_pipeline/download_heatmap/download_markings/*.sh /root/src/uploadHeatmaps/uploadHeatmaps.sh
 
 ### Expose port
 #EXPOSE 3000
