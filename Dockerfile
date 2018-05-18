@@ -37,9 +37,11 @@ RUN git clone https://github.com/SBU-BMI/lymph_pipeline.git
 RUN git clone https://github.com/SBU-BMI/uploadHeatmaps.git
 
 ### Todo: Refactor to use a local copy of scripts that makes sense.
-RUN cp /root/src/uploadHeatmaps/*.sh /usr/local/bin/
-#RUN cp /root/src/u24_lymphocyte/download_heatmap/download_markings/* /usr/local/bin/
-#RUN cp -Rf /root/src/u24_lymphocyte/conf /etc
+RUN ln -s /root/src/uploadHeatmaps/uploadHeatmaps.sh /usr/local/bin/uploadHeatmaps.sh
+RUN ln -s /root/src/lymph_pipeline/download_heatmap/download_markings/download_markings_weights.sh /usr/local/bin/download_markings_weights.sh
+RUN ln -s /root/src/lymph_pipeline/download_heatmap/download_markings/get_formatted_mark.sh /usr/local/bin/get_formatted_mark.sh
+RUN ln -s /root/src/lymph_pipeline/download_heatmap/download_markings/get_formatted_weight.sh /usr/local/bin/get_formatted_weight.sh
+RUN ln -s /root/src/lymph_pipeline/download_heatmap/download_markings/raw_data_formating.awk /usr/local/bin/raw_data_formating.awk
 
 ### Expose port
 #EXPOSE 3000
