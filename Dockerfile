@@ -16,13 +16,17 @@ RUN apt-get -q -y upgrade
 RUN apt-get -q -y dist-upgrade
 RUN apt-get clean
 RUN apt-get -q update
+RUN apt-get -q -y install sudo git curl libtool zsh nodejs npm vim
+RUN sudo sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 
 # OpenSSH server
 RUN apt-get -q -y install openssh-server
 
 ### need build tools for building openslide and later iipsrv
-RUN apt-get -q -y install sudo git curl libtool zsh nodejs npm vim
-RUN sudo sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+RUN apt-get -y install openslide-tools bc
+RUN apt-get -y install imagemagick
+
+RUN apt-get clean
 
 RUN mkdir /root/src
 
@@ -33,7 +37,7 @@ RUN npm install -g forever
 WORKDIR /root/src
 
 ### git Clone needed folders and copy into final destination.
-RUN git clone https://github.com/SBU-BMI/lymph_pipeline.git
+RUN git clone -b feature_dockpipes https://github.com/SBU-BMI/u24_lymphocyte.git
 RUN git clone https://github.com/SBU-BMI/uploadHeatmaps.git
 
 ### Todo: Refactor to use a local copy of scripts that makes sense.
