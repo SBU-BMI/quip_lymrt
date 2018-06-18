@@ -37,7 +37,7 @@ RUN npm install -g forever
 WORKDIR /root/src
 
 ### git Clone needed folders and copy into final destination.
-RUN git clone -b feature_dockpipes https://github.com/SBU-BMI/u24_lymphocyte.git
+RUN git clone -b feature-dockpipes https://github.com/SBU-BMI/u24_lymphocyte.git
 RUN git clone https://github.com/SBU-BMI/uploadHeatmaps.git
 
 ### Todo: Refactor to use a local copy of scripts that makes sense.
